@@ -3,16 +3,13 @@ kind: Pod
 metadata:
   name: fresco-pod
 spec:
+  containers:
+  - name: fresco-container
+    image: nginx
+    volumeMounts:
+    - name: fresco-storage
+      mountPath: /usr/share/nginx/html
   volumes:
-    - name: test-pv-storage
+  - name: fresco-storage
     persistentVolumeClaim:
        claimName: fresco-pvc
-  containers:
-    - name: fresco-pv-container
-      image: nginx
-      ports:
-        - containerPort: 80
-          name: "nginx-server"
-      volumeMounts:
-        - mountPath: "/usr/share/nginx/html"
-          name: test-pv-storage
