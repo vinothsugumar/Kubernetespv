@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fresco-pod
+spec:
+  volumes:
+    - name: test-pv-storage
+      persistentVolumeClaim:
+       claimName: fresco-pvc
+  containers:
+    - name: fresco-pv-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "nginx-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: fresco-pv-storage
