@@ -4,7 +4,7 @@ metadata:
   name: fresco-pod
 spec:
   volumes:
-    - name: test-pv-storage
+    - name: fresco-pv-storage
       persistentVolumeClaim:
        claimName: fresco-pvc
   containers:
