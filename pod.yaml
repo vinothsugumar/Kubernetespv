@@ -4,7 +4,7 @@ metadata:
   name: fresco-pod
 spec:
   volumes:
-    - name: fresco-pv-storage
+    - name: test-pv-storage
     persistentVolumeClaim:
        claimName: fresco-pvc
   containers:
@@ -15,4 +15,4 @@ spec:
           name: "nginx-server"
       volumeMounts:
         - mountPath: "/usr/share/nginx/html"
-          name: fresco-pv-storage
+          name: test-pv-storage
